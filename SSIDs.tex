@@ -77,6 +77,20 @@ Laptops broadcast the list of Wi-Fi networks(SSID's) that a user has ever connec
 
 \section{Background}
 
+
+\section{Related Work}
+There has been a fair amount of related work in this area, however most of the work was targeted at cell phones and not laptops. Cell phones have stopped broadcasting the SSID list when probing for Wi-Fi connections.
+
+Chang et al  sought to discover user relationships from observing the similarity of SSID lists between users, they took into account physical proximity and spatio-temporal behavior. They looked at the similarities of SSID lists being broadcasted from cell phones before cell phones disabled this feature. They found that spatio-temporal data had more social connections. 
+
+Barbera et al  used social network analysis on datasets of Wi-Fi probes from cell phones in public areas. They found that data matched typical properties of social networks. They also mentioned what devices broadcast the SSID list when probing for a connection.
+
+Desmond et al discussed an alternative approach to fingerprinting that defeats MAC address 
+randomization and the absence of an SSID list by timing the intervals between Wi-Fi probes, but requires hours of continuous data to perform adequately.
+
+Cunche et al  present a mechanism to detect links between people by fingerprinting devices by exploiting the fact the SSID lists are broadcasted in plain text when probing for WI-FI connections. They take a very quantitative approach and are able to gather a large dataset. This work demonstrates a privacy breach allowed by the 802.11 probe requests and raises awareness that initiative should be taken to increase privacy in terms of Access point discovery. 
+
+
 \section{Related Work}
 There has been a fair amount of related work in this area, however most of the work was targeted at cell phones and not laptops. Cell phones have stopped broadcasting the SSID list when probing for Wi-Fi connections.
 
@@ -114,6 +128,7 @@ We collected data from consenting participants.
 \end{figure*}
 
 \section{Participant Survey}
+We asked our participants to complete a survey after viewing their personalized social network graph.
 
 
 \section{Future Work}
