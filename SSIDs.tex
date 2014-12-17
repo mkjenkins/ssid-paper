@@ -74,12 +74,11 @@ results from a survey conducted to understand participants' reactions
 to this data.
 \section{Introduction}
 Passive Wi-Fi tracking has started to become yet another way for retailers, advertisers, and data analytics companies to glean useful information about people. A large majority of users are unaware that this metadata is being publicly broadcast and can be easily collected. 
-
-Laptops broadcast the list of Wi-Fi networks(SSID's) that a user has ever connected to. The list of SSID's is broadcasted when your laptop is probing for a Wi-Fi access point. A large majority of users are unaware that this data is broadcasted and can be monitored. Previously cell phones broadcasted this data as well. People are surprised that their location data is being broadcasted. The fact that this data is being broadcasted raises some privacy concerns.
+Laptops broadcast the list of Wi-Fi networks(SSID's) that a user has ever connected to. The list of SSID's is broadcasted when your laptop is probing for a Wi-Fi access point. Previously cell phones broadcasted this data as well however recently they have stopped. People are surprised that their location data is being broadcasted. The fact that this data is being broadcasted raises some privacy concerns.
 
 \section{Background}
 
-Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. There are three types of scans a device cane use. 
+Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. There are three types of scans a device can use. There is a directed probe request which sends the list of SSID's. There is a broadcast probe that send the MAC address of the device and asks for information on all the networks. There is a passive scan that waits for beacon frames broadcasted by the Wi-Fi access point. 
 
 \section{Related Work}
 There has been a fair amount of related work in this area, however most of the work was targeted at cell phones and not laptops. Cell phones have stopped broadcasting the SSID list when probing for Wi-Fi connections.
