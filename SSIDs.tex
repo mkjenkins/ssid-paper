@@ -74,12 +74,14 @@ results from a survey conducted to understand participants' reactions
 to this data.
 
 \section{Introduction}
-Laptops broadcast the list of Wi-Fi networks (SSID's) that a user has ever connected to. The list of SSID's is broadcasted when your laptop is attempting to connect to a Wi-Fi access point. Wi-Fi access points are ubiquitous and passive Wi-Fi tracking has started to become yet another way for retailers, advertisers, and data analytics companies to glean useful information about people. A quick google search for passive Wi-Fi tracking reveals tutorial after tutorial on passive Wi-Fi tracking. Previously cell phones broadcasted this data however recently they have stopped. A large majority of users are unaware that this metadata is being publicly broadcast and can be easily collected. The fact that this data is being broadcasted raises privacy and security concerns. From your SSID list it could be inferred what your favorite coffees shop is, your social and political affiliations and where you work among other things. It also raises some security concerns. An attacker could conduct a man-in-the-middle attack, an evil twin attack or Auto Association Karma Attack [Reference] to name a few. 
+Laptops broadcast the list of Wi-Fi networks (SSID's) that a user has ever connected to. The list of SSID's is broadcasted when your laptop is attempting to connect to a Wi-Fi access point. Wi-Fi access points are ubiquitous and passive Wi-Fi tracking has started to gain popularity amongst retailers, advertisers, and data analytics companies to glean useful information about people. A quick google search for passive Wi-Fi tracking reveals tutorial after tutorial on how to conduct passive Wi-Fi tracking. 
+
+Previously cell phones broadcasted this data however recently they have stopped. A large majority of users are unaware that this metadata is being publicly broadcast and can be easily collected. The fact that this data is being broadcasted raises privacy and security concerns. Your SSID list is a form of location history. From your SSID list it could be inferred what your favorite coffees shop is, what conferences you attend, your social and political affiliations and where you work among other things. It also raises some security concerns. An attacker who captures this information could conduct a man-in-the-middle attack, an evil twin attack or Auto Association Karma Attack [Reference] to name a few. 
 
 \section{Background}
-Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Devices can use passive or active scanning. There are three types of scans a device can deploy. There is a directed probe request where the client sends the list of SSID's to the access point in plain text. There is a broadcast probe where the client sends the MAC address of the device and asks for information on all the networks. There is a passive scan where the client waits for beacon frames. Beacon frames are packets that are broadcasted by the Wi-Fi access point and the device waits for a frame from an access point it has previously connected to. 
+Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Devices can use passive or active scanning to connect. There are three specific types of scans a device can deploy. The first falls under the active scan category. A client sends a directed probe request with the list of SSID's to the access point in plain text. The second active scan is a broadcast probe. The broadcast probe  sends the MAC address of the clients device and asks for information on all the networks. There is a passive scan where the client waits for beacon frames. Beacon frames are packets that are broadcasted by the Wi-Fi access point and the device waits for a frame from an access point it has previously connected to. 
 
-Different laptops use different probe request methods. Cell phones use a mixture of broadcast probes and passive scanning. To gather this data is trivial with access to a computer or Wi-Fi device. The laptop or Wi-Fi device can be put into monitor to pickup nearby traffic. In doing so the device in monitor mode is not broadcasting its presence, making it hard to detect if a nearby user is collected your metadata.
+Different laptops use different probe request methods. Cell phones use a mixture of broadcast probes and passive scanning. To gather this data is trivial with access to a computer or Wi-Fi device. The laptop or Wi-Fi device can be put into monitor to pickup nearby traffic. In doing so the device in monitor mode is not broadcasting its presence, making it hard to detect if a nearby user is collecting your metadata.
 
 \section{Related Work}
 There is a fairly large body of work investigating the utility of metadata that is broadcasted when connecting to Wi-Fi access points. The majority of the work was targeted at cell phones and not laptops. Recently cell phones have stopped broadcasting the SSID list when probing for Wi-Fi connections.
@@ -169,12 +171,16 @@ SSID lists and MAC addresses can be used to infer social networks and ties[CHANG
 
 Figure 3 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcasted by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two particpants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
 
-From this graph we could infer that some students of the University of Utah frequent Coffee Break and have traveled outside of Salt Lake by airplane. While the information we gathered is rather benign larger data collection and social network analysis is viable and could reveal much more meaningful and possibly damaging information.
+The nodes on our graph are what we anticipated. A mixture of Univeristy access points, coffee shops, and airports. From this graph we could infer that some students of the University of Utah frequent Coffee Break and have traveled outside of Salt Lake by airplane. While the information we gathered is rather benign, larger data collection and social network analysis is viable and could reveal much more meaningful information. 
 
 \section{Implications}
 Publicly available Wi-Fi network databases 
+
 Wigle.net
+
 Locational narrative 
+
+Client Fingerprinting
 \begin{figure*}
 \centering
 \includegraphics[scale=.45]{wigle}
