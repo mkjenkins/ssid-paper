@@ -95,13 +95,10 @@ Cunche et al  present a mechanism to detect links between people by fingerprinti
 
 Greenstein et al makes the argument that it is in the best interest of not only users, but also manufacturers, to address the privacy threats that wireless networks pose. The authors considered an 802.11 case study and analyzed 802.11 traces. They used this information to show that, over time, devices can be identified and tracked through its SSID lists, its persistent link-layer address, and other characteristics. The authors of this work provide suggestions for ways to improve privacy through design considerations.
 
-
-
-
-
 \section{Privacy Considerations}
-To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. We took precautionary measures to protect the anonymity of our users and the data we collected from them.
-
+To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. We took precautionary measures to protect the anonymity of our users and the data we collected from them. 
+All participants in the study were required to sign an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our retention policies were. 
+Participants who had SSID's that less than two other participants connected to were filtered out of the data. We assumed that most home networks would be filtered out this way and we would be left with general networks like coffee shops and campus wifi. We encrypted the data in transit and at rest in an effort to keep our users data anonymous and secure.
 
 
 \section{Data Collection}
@@ -142,14 +139,14 @@ Scans & SSIDs Collected \\
 \end{tabular}
 \caption{SSID collection by number of network scans captured. Full SSID list is 29 networks. Averaged over 3 trials.}
 \end{figure}
-
-\section{Social Network Analysis}
 \begin{figure*}
 \centering
 \includegraphics[scale=.5]{graph.png}
 \caption{\textsf{Social network graph}}
 \end{figure*}
-SSID lists and MAC addresses can be used to infer social networks and ties[CHANG ETAL]. Although we didn't gather enough data to infer large social networks we gather enough to construct a graph of the participants and the SSID's the participants had in common. The filtered metadata was used to create personalized social network graphs for each participant. The graphs were created and sent out to participants with an automated script so that their SSID lists and graphs were never looked at. 
+
+\section{Social Network Analysis}
+SSID lists and MAC addresses can be used to infer social networks and ties[CHANG ETAL]. Although we didn't gather enough data to infer large social networks we gathered enough to construct a graph of the participants and the SSID's the participants had in common. The filtered metadata was used to create personalized social network graphs for each participant. The graphs were rendered using Javascripts D3 library. The graphs were rendered and sent out to participants with an automated script so that their SSID lists and graphs were never looked at. 
 
 Figure 3 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcasted by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two particpants that had connected to it. It happened to be one of the authors home networks so received authorization to included it in the network graph. 
 
