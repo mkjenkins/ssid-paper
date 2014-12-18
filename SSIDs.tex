@@ -74,16 +74,16 @@ results from a survey conducted to understand participants' reactions
 to this data.
 
 \section{Introduction}
-Laptops broadcast the list of Wi-Fi networks (SSID's) that a user has ever connected to. The list of SSID's is broadcasted when your laptop is attempting to connect to a Wi-Fi access point. Wi-Fi access points are ubiquitous and passive Wi-Fi tracking has started to gain popularity amongst retailers, advertisers, and data analytics companies to glean useful information about people. A quick google search for passive Wi-Fi tracking reveals tutorial after tutorial on how to conduct passive Wi-Fi tracking. 
+Laptops broadcast the list of Wi-Fi networks (SSID's) that a user has ever connected to. The list of SSID's is broadcasted when your laptop is attempting to connect to a Wi-Fi hotspot (access point). Wi-Fi access points are ubiquitous and passive Wi-Fi tracking has started to gain popularity amongst retailers, advertisers, and data analytics companies to glean useful information about people. A quick google search for passive Wi-Fi tracking reveals tutorial after tutorial on how to conduct passive Wi-Fi tracking. 
 
 Previously cell phones broadcasted this data however recently they have stopped. A large majority of users are unaware that this metadata is being publicly broadcast and can be easily collected. The fact that this data is being broadcasted raises privacy and security concerns. Your SSID list is a form of location history. From your SSID list it could be inferred what your favorite coffees shop is, what conferences you attend, your social and political affiliations and where you work among other things. It also raises some security concerns. An attacker who captures this information could conduct a man-in-the-middle attack, an evil twin attack or Auto Association Karma Attack [Reference] to name a few. 
 
-In this paper we focus on the broadcast of SSID's from laptops attempting to connect to a Wi-Fi access point. We will demonstrate how this data can be collected and explore the privacy and security implications of this publicly broadcasted metadata. We do so by collecting data from Wi-Fi access points and rendering social network graphs. In section 2 we discuss Wi-Fi network scanning. In section 3 we mention related work in this area. From section 4 onwards we discuss our study methods, results, and conclude.
+In contrast to recent work in this area this paper focuses on the broadcast of SSID's from laptops attempting to connect to a Wi-Fi access point. We will demonstrate how this data can be collected and used to imply social networks. We will explore the privacy and security implications of this publicly broadcasted metadata. We do so by collecting data from Wi-Fi access points and rendering social network graphs and examining the connections. In section 2 we discuss Wi-Fi network scanning. In section 3 we mention related work in this area. From section 4 onwards we discuss our study methods, results, and conclude.
 
 
 
 \section{Background}
-Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Devices can use passive or active scanning to connect. There are three specific types of scans a device can deploy. The first falls under the active scan category. A client sends a directed probe request with the list of SSID's to the access point in plain text. The second active scan is a broadcast probe. The broadcast probe  sends the MAC address of the clients device and asks for information on all the networks. There is a passive scan where the client waits for beacon frames. Beacon frames are packets that are broadcasted by the Wi-Fi access point and the device waits for a frame from an access point it has previously connected to. 
+Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Devices can use passive or active discovery to connec to an access point. There are three specific types of scans a device can deploy. The first falls under the active scan category. A client sends a directed probe request with the list of SSID's to the access point in plain text. The second active scan is a broadcast probe. The broadcast probe  sends the MAC address of the clients device and asks for information on all the networks. There is a passive scan where the client waits for beacon frames. Beacon frames are packets that are broadcasted by the Wi-Fi access point and the device waits for a frame from an access point it has previously connected to. 
 
 Different laptops use different probe request methods. Cell phones use a mixture of broadcast probes and passive scanning. To gather this data is trivial with access to a computer or Wi-Fi device. The laptop or Wi-Fi device can be put into monitor to pickup nearby traffic. In doing so the device in monitor mode is not broadcasting its presence, making it hard to detect if a nearby user is collecting your metadata.
 
@@ -155,7 +155,11 @@ During packet capture with scapy we found that the Wi-Fi Pineapple occasionally 
 Another factor limiting the volume of data we captured was encouraging --- it appears that Linux and Windows clients don't generally perform directed probes, opting instead for broadcast probes unless a network was specially configured. During data collection we noted that captures from devices running Linux usually only included a single SSID plus a broadcast probe. The final social network graph discussed in section~\ref{social} shows many devices only having connected to UConnect, the campus wireless network. We hypothesize that Linux devices transmit directed probes only for the network they're currently connected to or were most recently connected to. Other networks are discovered by broadcast probes. Documentation for wpa\_supplicant on linux suggests that users could configure individual networks for which directed probes should be used, like hidden networks, but that otherwise it would use broadcast probes. We haven't found documentation for the behavior on Windows but we suspect that it similarly only uses directed probes for manually configured networks that may be hidden. Of the 5 devices in our study that yielded 3 or more network names, all were Apple devices. At least one of those devices was running the latest release of OS X, Yosemite.
 
 These results suggest that vendors other than Apple have recognized the security and privacy implications of directed probes and modified their devices to instead use broadcast probes. Our testing suggests that Apple has done the same for its mobile devices, but not for OS X. Given that other platforms have demonstrated that broadcast probing works effectively we argue that Apple should change the behavior of OS X to better preserve privacy.
-
+\begin{figure*}
+\centering
+\includegraphics[scale=.5]{graph.png}
+\caption{\textsf{Social network graph}}
+\end{figure*}
 \begin{figure}
 \centering
 \begin{tabular}{l | l}
@@ -172,11 +176,7 @@ Scans & SSIDs Collected \\
 
 
 \section{Social Network Analysis}
-\begin{figure*}
-\centering
-\includegraphics[scale=.5]{graph.png}
-\caption{\textsf{Social network graph}}
-\end{figure*}
+
 SSID lists and MAC addresses can be used to infer social networks and ties[CHANG ETAL]. Although we didn't gather enough data to infer large social networks we gathered enough to construct a graph of the participants and the SSID's the participants had in common. The filtered metadata was used to create personalized social network graphs for each participant. The graphs were rendered using Javascripts D3 library. The graphs were rendered and sent out to participants with an automated script so that their complete SSID lists and graphs were never looked at. 
 
 Figure 2 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcasted by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two participants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
@@ -199,22 +199,9 @@ Client Fingerprinting
 \end{figure*}
 
 \section{Participant Survey}
-\begin{figure*}
-
-\begin{tabular}{l}
-Survey Questions\\
-\hline
-Did you know prior to the project that your SSID list is broadcasted when you probe to connect to a Wifi network? \\
-What are your reactions to your personalized study results? \\
-What are your reactions to this study in general? \\
-\end{tabular}
-\end{figure*}
-
-We asked our participants to complete a survey after viewing their personalized social network graph. 
 
 
-We did not receive responses from the majority of our participants. However as you can see in Figure 4 all participants who did respond said they did not know this data was broadcasted. 
-
+To gauge our participants reactions we asked our participants to complete a survey after viewing their personalized social network graph. The survey included three questions. The first being did you know prior to our project that your SSID list is broadcasted when you probe to connect to a Wi-Fi network? The second was what are you reactions to your personalized study results? The third question was not mandatory. It was what are you reactions to this study in general? We did not receive responses from the majority of our participants. Every participant that did respond said they did not know this data was broadcasted. The last two questions were to gauge the sentiment of our participants. The answers gave us the sense that it didn't matter to them that their data was broadcasted but they could see the utility of the metadata for advertisers.
 
 
 \section{Future Work}
