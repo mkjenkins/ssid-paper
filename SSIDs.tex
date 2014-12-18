@@ -78,6 +78,10 @@ Laptops broadcast the list of Wi-Fi networks (SSID's) that a user has ever conne
 
 Previously cell phones broadcasted this data however recently they have stopped. A large majority of users are unaware that this metadata is being publicly broadcast and can be easily collected. The fact that this data is being broadcasted raises privacy and security concerns. Your SSID list is a form of location history. From your SSID list it could be inferred what your favorite coffees shop is, what conferences you attend, your social and political affiliations and where you work among other things. It also raises some security concerns. An attacker who captures this information could conduct a man-in-the-middle attack, an evil twin attack or Auto Association Karma Attack [Reference] to name a few. 
 
+In this paper we focus on the broadcast of SSID's from laptops attempting to connect to a Wi-Fi access point. We will demonstrate how this data can be collected and explore the privacy and security implications of this publicly broadcasted metadata. We do so by collecting data from a Wi-Fi access point and rendering social network graphs. In section 2 we discuss Wi-Fi network scanning. In section 3 we mention related work in this area. From section 4 onwards we discuss our study methods, results, and conclude.
+
+
+
 \section{Background}
 Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Devices can use passive or active scanning to connect. There are three specific types of scans a device can deploy. The first falls under the active scan category. A client sends a directed probe request with the list of SSID's to the access point in plain text. The second active scan is a broadcast probe. The broadcast probe  sends the MAC address of the clients device and asks for information on all the networks. There is a passive scan where the client waits for beacon frames. Beacon frames are packets that are broadcasted by the Wi-Fi access point and the device waits for a frame from an access point it has previously connected to. 
 
@@ -100,20 +104,24 @@ Greenstein et al makes the argument that it is in the best interest of not only 
 \section{Privacy Considerations}
 To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. We had to consider what SSID's might imply about a particpant. Would other participants in the study have enough information to de-identify the data? How can we ensure that a public display of the social network graph won't give away information about other participants in the study? 
 
+We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our retention policies were. 
+
+\subsection{SSID's Imply Location}
 SSIDs imply location
 
 Sensitive locations
 
 Locations implying social or cultural associations
 
-Other participants have information to de-identify
 
+
+\subsection{De-identification}
+Other participants have information to de-identify
 De-identification risks in time-series data
 
+\subsection{Other Risks}
 Risks of interactive display
 
-We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our retention policies were. 
-Participants who had SSID's that less than two other participants connected to were filtered out of the data. We assumed that most home networks would be filtered out this way and we would be left with general networks like coffee shops and campus wifi. We encrypted the data in transit and at rest in an effort to keep our users data anonymous and secure.
 
 
 
