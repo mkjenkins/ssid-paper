@@ -96,9 +96,23 @@ Cunche et al  present a mechanism to detect links between people by fingerprinti
 Greenstein et al makes the argument that it is in the best interest of not only users, but also manufacturers, to address the privacy threats that wireless networks pose. The authors considered an 802.11 case study and analyzed 802.11 traces. They used this information to show that, over time, devices can be identified and tracked through its SSID lists, its persistent link-layer address, and other characteristics. The authors of this work provide suggestions for ways to improve privacy through design considerations.
 
 \section{Privacy Considerations}
-To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. We took precautionary measures to protect the anonymity of our users and the data we collected from them. 
-All participants in the study were required to sign an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our retention policies were. 
+To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. We had to consider what SSID's might imply about a particpant. Would other participants in the study have enough information to de-identify the data? How can we ensure that a public display of the social network graph won't give away information about other participants in the study? 
+
+SSIDs imply location
+
+Sensitive locations
+
+Locations implying social or cultural associations
+
+Other participants have information to de-identify
+
+De-identification risks in time-series data
+
+Risks of interactive display
+
+We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our retention policies were. 
 Participants who had SSID's that less than two other participants connected to were filtered out of the data. We assumed that most home networks would be filtered out this way and we would be left with general networks like coffee shops and campus wifi. We encrypted the data in transit and at rest in an effort to keep our users data anonymous and secure.
+
 
 
 \section{Data Collection}
@@ -150,10 +164,10 @@ SSID lists and MAC addresses can be used to infer social networks and ties[CHANG
 
 Figure 3 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcasted by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two particpants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
 
-From this graph we could infer that some students of the University of Utah frequent Foffee Break and have traveled outside of Salt Lake by airplane.
+From this graph we could infer that some students of the University of Utah frequent Coffee Break and have traveled outside of Salt Lake by airplane. While the information we gathered is rather benign larger data collection and social network analysis is viable and could reveal much more meaningful and possibly damaging information.
 
 \section{Implications}
-Publicly available Wi-Fi network databases
+Publicly available Wi-Fi network databases 
 Wigle.net
 Locational narrative 
 \begin{figure*}
