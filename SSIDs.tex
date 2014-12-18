@@ -21,7 +21,7 @@
 
 % This version uses the latex2e styles, not the very ancient 2.09 stuff.
 \documentclass[letterpaper,twocolumn,10pt]{article}
-\usepackage{usenix,epsfig,endnotes}
+\usepackage{usenix,epsfig,endnotes,placeins}
 \begin{document}
 
 %don't want date printed
@@ -104,12 +104,29 @@ To conduct this study we had to take into consideration the security and privacy
 \section{Data Collection}
 
 
-\section{Characterization of Data}
+\section{Data Evaluation}
+We were less successful in capturing data than we anticipated. Of our 28 participants (including the authors), 18 only yielded zero or one network name. Figure~\ref{histogram} shows the full distribution of network counts. Following data collection, we performed some further experiments to explain these disappointing results.
 
 \begin{figure}
 \includegraphics[width=\columnwidth]{hist.pdf}
 \caption{Histogram of SSID list size}
+\label{histogram}
 \end{figure}
+
+\FloatBarrier
+
+\subsection{Capture Reliability}
+The three individuals yielding the most network names were the authors. We hypothesize that more complete network lists were collected from our devices because they were present near the monitoring device for an extended period of time, so there were multiple opportunities to capture the data. As a test we measured the number of network names cumulatively collected by packet capture while a MacBook scanned for wireless networks a number of times. We found that a capture of only a single scan yielded on average only 31\% of the network list (with 28 networks total) and that we'd need to capture four or five scans to get a mostly-complete list. Figure~\ref{scans} shows the complete results of this experiment. An attacker able to monitor traffic over a long period of time likely wouldn't find this to be a problem, but it might thwart reliable fingerprinting of clients an access point only sees once. However, we suspect that our failure to capture the SSID list reliably was not because they were not transmitted, but because our receiver was overwhelmed and unable to keep up with filtering.
+
+\subsection{Linux Socket Filtering}
+During packet capture with scapy we found that the Wi-Fi Pineapple occasionally froze, requiring a restart, and at other times took several seconds to register new packets. We suspect that our packet filtering code in python wasn't able to keep up with the volume of captured packets. The Pineapple only has a 400 MHz processor, and each packet received must be communicated from kernel-space to user-space by a system call before it is filtered in python. Sometime after the data collection phase of our project we learned about linux socket filtering, a way to filter packets in kernel-space before they are returned to a packet monitoring application. Filters from tools like tcpdump typically use this method. The filtering rules available through tcpdump are sufficient to express the filter we'd written in scapy. Testing with tcpdump filtering shows that it reliably collects at least 16 of 28 networks from a single scan. It isn't clear why only 16 of the network names appear to be transmitted during a scan. Perhaps the laptop successfully established a connection before needing to complete the scan; more seem to be transmitted when initially enabling wireless in a location where none of the remembered wireless networks are available. Overall we suspect that if we'd used kernel level filtering during the data collection phase of our study we would have collected more network names from some of our participants.
+
+\subsection{Operating System Behavior}
+Another factor limiting the volume of data we captured was encouraging --- it appears that Linux and Windows clients don't generally perform directed probes, opting instead for broadcast probes unless a network was specially configured. During data collection we noted that captures from devices running Linux usually only included a single SSID plus a broadcast probe. The final social network graph discussed in section~\ref{social} shows many devices only having connected to UConnect, the campus wireless network. We hypothesize that Linux devices transmit directed probes only for the network they're currently connected to or were most recently connected to. Other networks are discovered by broadcast probes. Documentation for wpa\_supplicant on linux suggests that users could configure individual networks for which directed probes should be used, like hidden networks, but that otherwise it would use broadcast probes. We haven't found documentation for the behavior on Windows but we suspect that it similarly only uses directed probes for manually configured networks that may be hidden. Of the 5 devices in our study that yielded 3 or more network names, all were Apple devices. At least one of those devices was running the latest release of OS X, Yosemite.
+
+These results suggest that vendors other than Apple have recognized the security and privacy implications of directed probes and modified their devices to instead use broadcast probes. Our testing suggests that Apple has done the same for its mobile devices, but not for OS X. Given that other platforms have demonstrated that broadcast probing works effectively we argue that Apple should change the behavior of OS X to better preserve privacy.
+
+
 
 \begin{figure}
 \centering
@@ -123,9 +140,11 @@ Scans & SSIDs Collected \\
 5 & 91\% \\
 \end{tabular}
 \caption{SSID collection by number of network scans captured. Full SSID list is 29 networks. Averaged over 3 trials.}
+\label{scans}
 \end{figure}
 
 \section{Social Network Analysis}
+\label{social}
 \begin{figure*}
 \centering
 \includegraphics[scale=.5]{graph.png}
