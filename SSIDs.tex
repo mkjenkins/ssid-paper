@@ -168,16 +168,17 @@ Scans & SSIDs Collected \\
 \end{tabular}
 \caption{SSID collection by number of network scans captured. Full SSID list is 29 networks. Averaged over 3 trials.}
 \end{figure}
+
+
+\section{Social Network Analysis}
 \begin{figure*}
 \centering
 \includegraphics[scale=.5]{graph.png}
 \caption{\textsf{Social network graph}}
 \end{figure*}
-
-\section{Social Network Analysis}
 SSID lists and MAC addresses can be used to infer social networks and ties[CHANG ETAL]. Although we didn't gather enough data to infer large social networks we gathered enough to construct a graph of the participants and the SSID's the participants had in common. The filtered metadata was used to create personalized social network graphs for each participant. The graphs were rendered using Javascripts D3 library. The graphs were rendered and sent out to participants with an automated script so that their SSID lists and graphs were never looked at. 
 
-Figure 3 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcasted by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two particpants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
+Figure 2 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcasted by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two particpants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
 
 The nodes on our graph are what we anticipated. A mixture of Univeristy access points, coffee shops, and airports. From this graph we could infer that some students of the University of Utah frequent Coffee Break and have traveled outside of Salt Lake by airplane. While the information we gathered is rather benign, larger data collection and social network analysis is viable and could reveal much more meaningful information. 
 
@@ -189,9 +190,10 @@ Wigle.net
 Locational narrative 
 
 Client Fingerprinting
+
 \begin{figure*}
 \centering
-\includegraphics[scale=.45]{wigle}
+\includegraphics[scale=.43]{wigle}
 \caption{\textsf{Coffee Break's Wi-Fi access point location}}
 \end{figure*}
 
