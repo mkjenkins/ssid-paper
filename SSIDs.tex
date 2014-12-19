@@ -102,11 +102,20 @@ Cunche et al \cite{cunche}  present a mechanism to detect links between people b
 Greenstein et al \cite{greenstein} makes the argument that it is in the best interest of not only users, but also manufacturers, to address the privacy threats that wireless networks pose. The authors considered an 802.11 case study and analyzed 802.11 traces. They used this information to show that, over time, devices can be identified and tracked through its SSID lists, its persistent link-layer address, and other characteristics. The authors of this work provide suggestions for ways to improve privacy through design considerations.
 
 \section{Privacy Considerations}
-To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. We had to consider what SSID's might imply about a participant. Would other participants in the study have enough information to de-identify the data? How can we ensure that a public display of the social network graph won't give away information about other participants in the study? 
+To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. The intent of our project is to reveal the potential privacy implications of the type of data we collected, so we had to address the reasonable privacy concerns of our participants.
 
-We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our data retention policies were. 
+\subsection{Location Data}
+While we didn't directly collect location history, the names of wireless networks often identify a location. The name itself might describe the location, like the name of a business or airport. It might also be recorded in a database of wireless networks. Companies like Apple and Google use such databases to geolocate devices based on surrounding wireless networks but there are also publicly available databases assembled by hobbyists. All sorts of networks including homes, workplaces, and social locations like coffee shops are included in these databases. One such publicly available database is wiggle.net. Figure~\ref{wiggle} shows the location associated with one of the networks that appeared in our study.
 
-\subsection{SSID's Imply Location}
+\begin{figure*}
+\centering
+\includegraphics[scale=.43]{wigle}
+\caption{\textsf{Coffee Break's Wi-Fi access point location}}
+\label{wiggle}
+\end{figure*}
+
+
+
 SSIDs imply location
 
 Sensitive locations
@@ -124,6 +133,9 @@ De-identification risks in time-series data
 Interactive display
 
 
+We had to consider what SSID's might imply about a participant. Would other participants in the study have enough information to de-identify the data? How can we ensure that a public display of the social network graph won't give away information about other participants in the study? 
+
+We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our data retention policies were. 
 
 
 \section{Data Collection}
@@ -192,11 +204,6 @@ Locational narrative
 
 Client Fingerprinting
 
-\begin{figure*}
-\centering
-\includegraphics[scale=.43]{wigle}
-\caption{\textsf{Coffee Break's Wi-Fi access point location}}
-\end{figure*}
 
 \section{Participant Survey}
 
