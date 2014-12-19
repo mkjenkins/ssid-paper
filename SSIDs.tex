@@ -116,13 +116,6 @@ While we didn't directly collect location history, the names of wireless network
 
 
 
-SSIDs imply location
-
-Sensitive locations
-
-Locations implying social or cultural associations
-
-
 
 \subsection{De-identification}
 Other participants have information to de-identify
@@ -202,9 +195,10 @@ Wigle.net
 Locational narrative 
 
 \subsection{Client Fingerprinting}
-We wanted to look at fingerprinting participants based upon their SSID lists. We thought that based upon the different networks participants have connected to the lists would be different enough that we could uniquely identify participants. While the lists in our study were unique from one another we did not gather near enough data to conclusively say it is possible to fingerprint solely based upon your SSID list. 
 
-Related works in this area have successfully fingerprinted devices using the timing of the probe request frames \cite{desmond} and the waveform \cite{ureten}. These works focus more on security than privacy. 
+We wanted to look at fingerprinting participants based upon their SSID lists. We thought that based upon the different networks participants have connected to the lists would be different enough that we could uniquely identify participants. While the lists in our study were unique from one another we did not gather near enough data to conclusively say it is possible to fingerprint solely based upon your SSID list. We leave this for future work.
+
+Related works in this area have successfully fingerprinted devices and inferred social networks from the similarities of these fingerprints. One such work noted that it was possible to infer relationships from the SSID list similarities and grouped participants with similar SSID lists into groups to infer social ties\cite{cunche}. Two other works successfully fingerprinted using the timing of the probe request frames \cite{desmond} and the waveform \cite{ureten}. These works focus more on security than privacy.
 
 
 \section{Participant Survey}
