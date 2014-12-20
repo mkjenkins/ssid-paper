@@ -20,7 +20,7 @@
 % usepackage command, below.
 
 % This version uses the latex2e styles, not the very ancient 2.09 stuff.
-\documentclass[letterpaper,twocolumn,10pt]{article}
+\documentclass[letterpaper,twocolumn,12pt]{article}
 \usepackage{usenix,epsfig,endnotes,placeins}
 \begin{document}
 
@@ -196,7 +196,7 @@ Scans & SSIDs Collected \\
 
 SSID lists and MAC addresses can be used to infer social networks and ties\cite{cheng}. Although we didn't gather enough data to infer large social networks we gathered enough to construct a graph of the participants and the SSID's the participants had in common. The filtered metadata was used to create personalized social network graphs for each participant. The graphs were rendered using Javascripts D3 library. The graphs were rendered and sent out to participants with an automated script so that their complete SSID lists and graphs were never looked at. 
 
-Figure 2 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcast by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two participants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
+Figure 3 is an example social network graph. The green nodes denote the anonmyized participants, the purple node indicates the participant, and the orange nodes denote the SSID's shared among participants. Along with the graph the list of SSID's that was broadcast by the participants laptop was included. They are not pictured here to protect this individuals privacy. Wi-Fi access points were only included if more than two users had connected to them. We promised not to include the home network names and only one home network name had at least two participants that had connected to it. The network happened to be one of the authors home networks so we received authorization to include it in the network graph. 
 
 The nodes on our graph are what we anticipated. A mixture of University access points, coffee shops, and airports. From this graph we could infer that some students of the University of Utah frequent Coffee Break and have traveled outside of Salt Lake by airplane. While the information we gathered is rather benign, larger data collection and social network analysis is viable and could reveal much more meaningful information. 
 
@@ -220,7 +220,7 @@ the whereabouts of an individual.
 
 \subsection{Client Fingerprinting}
 
-Fingerprinting is meant to identify unique users. We wanted to look at fingerprinting participants based upon the participants SSID lists. We thought that based upon the different networks participants have connected to the lists would be different enough that we could uniquely identify participants. While the lists in our study were unique from one another we did not gather near enough data to conclusively say it is possible to fingerprint solely based upon your SSID list. Not only was our sample size not large enough different operating systems varied in the amount of information that was leaked. Complete SSID lists were not always captured making this more challenging to get an accurate list. We leave this for future work.
+Fingerprinting is meant to identify unique users. We wanted to look at fingerprinting participants based upon the participants SSID lists. We thought that based upon the different networks participants have connected to the lists would be different enough that we could uniquely identify participants. While the lists in our study were unique from one another we did not gather near enough data to conclusively say it is possible to fingerprint solely based upon your SSID list. Not only was our sample size not large enough different operating systems varied in the amount of information they was leaked. Complete SSID lists were not always captured making this more challenging to get an accurate list. We leave this for future work.
 
 Related works in this area have successfully fingerprinted devices and inferred social networks from the similarities of these fingerprints. One such work noted that it was possible to infer relationships from the SSID list similarities and grouped participants with similar SSID lists into groups to infer social ties \cite{cunche}. Two other works successfully fingerprinted using the timing of the probe request frames \cite{desmond} and the waveform \cite{ureten}. These works focus more on security than privacy.
 
