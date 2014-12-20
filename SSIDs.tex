@@ -123,18 +123,16 @@ While we didn't directly collect location history, the names of wireless network
 
 
 \subsection{De-identification}
-Other participants have information to de-identify
+While a lot of research has been done on the topic of de-identification an argument 
+has been made that available data and data from previously de-identified data sets 
+can be used to re-identify individuals \cite{narayanan}.  As it relates to our study, 
+although we anonymized nodes when sending personal graphs to participants, it could be possible
+to identify someone through a common network.  If you are aware that they connected to a
+particular network, you connected to the same network, and no other participants connected to
+the same network then their identity could be revealed. With this information you could now see 
+which other networks this now identified person has connected to. Admittedly, with a larger 
+data set re-identification would be more challenging. 
 
-De-identification risks in time-series data
-
-While a lot of research has been done on the topic of de-identification an 
-argument has been made that available data and data from previously de-identified data sets can be used to 
-re-identify individuals. \cite{narayanan} As it relates to our study, although we annoymized nodes
-when sending personal graphs to participants, if could be possible to identify someone through a common 
-network if you are aware that they connected to a particular network, you connected to the same network, 
-and no other participants connected to the same network. Through this one could see which other networks
-this now identified person has connected to. Adminittedly, with a larger data set re-identification 
-would be more challenging.
 
 \subsection{Other Risks}
 We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our data retention policies were. Any data we collected we encrypted the data in transit and at rest. 
