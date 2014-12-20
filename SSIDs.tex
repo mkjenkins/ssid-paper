@@ -83,7 +83,13 @@ In contrast to recent work in this area this paper focuses on the broadcast of S
 
 
 \section{Background}
-Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Devices can use passive or active discovery to connect to an access point. There are three specific types of scans a device can deploy. The first falls under the active scan category. A client sends a directed probe request with the list of SSID's to the access point in plain text. The second active scan is a broadcast probe. The broadcast probe  sends the MAC address of the clients device and asks for information on all the networks. There is a passive scan where the client waits for beacon frames. Beacon frames are packets that are broadcast by the Wi-Fi access point and the device waits for a frame from an access point it has previously connected to. 
+Every wireless enabled device has to go through a discovery process to connect to a Wi-Fi access point. Clients need to know what wireless networks are available both to offer them as choices to users and to automatically reconnect to access points they've been previously associated with.
+
+Most simplistically, a client can passively receive beacon frames broadcast by access points. Beacon frames are sent about 10 times per second and broadcast information about the network like its name (or SSID) \cite{cisco}. Access points can be configured in a hidden mode in which they don't send beacon frames, so passive scanning can't connect to hidden networks.
+
+Another method of scanning is broadcast probing. Probe requests are a type of management frame sent by the client that include it's MAC address and request that access points in range announce themselves. Access points respond to probe requests with probe responses containing similar information to beacon frames. Like passive scanning, broadcast probing can't find hidden networks. However, it may enable faster association because the client initiates the interchange and doesn't need to wait for the access point to send a beacon.
+
+Finally, a client can use directed probing. Just as with broadcast probing the client sends probe request management frames. With directed probing, however, the probe request frames each indicate a wireless network the client is interested in connecting to. Access points in hidden mode do respond to these directed probes. Clients usually list networks that have been manually configured or to which they've been previously connected when performing directed probing.
 
 Different laptops use different probe request methods. Cell phones use a mixture of broadcast probes and passive scanning. To gather this data is trivial with access to a computer or Wi-Fi device. The laptop or Wi-Fi device can be put into monitor to pickup nearby traffic. In doing so the device in monitor mode is not broadcasting its presence, making it hard to detect if a nearby user is collecting your metadata.
 
