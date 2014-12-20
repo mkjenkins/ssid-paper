@@ -123,9 +123,16 @@ While we didn't directly collect location history, the names of wireless network
 
 
 \subsection{De-identification}
-Other participants have information to de-identify
+While a lot of research has been done on the topic of de-identification an argument 
+has been made that available data and data from previously de-identified data sets 
+can be used to re-identify individuals \cite{narayanan}.  As it relates to our study, 
+although we anonymized nodes when sending personal graphs to participants, it could be possible
+to identify someone through a common network.  If you are aware that they connected to a
+particular network, you connected to the same network, and no other participants connected to
+the same network then their identity could be revealed. With this information you could now see 
+which other networks this now identified person has connected to. Admittedly, with a larger 
+data set re-identification would be more challenging. 
 
-De-identification risks in time-series data
 
 \subsection{Other Risks}
 We took precautionary measures to protect the anonymity of our users and the data we collected from them. All participants in the study were required to opt in to the study by signing an informed consent. The informed consent notified the participants what data we would be collecting, how we would use it, and what our data retention policies were. Any data we collected we encrypted the data in transit and at rest. 
@@ -193,10 +200,10 @@ The nodes on our graph are what we anticipated. A mixture of University access p
 
 \section{Implications}
 
+There are far-reaching implications of the plain text SSID list data. There are privacy and security risks. We focus on a locational narrative and client fingerprinting.
 
 \subsection{Location Narrative}
-There are far-reaching implications of the SSID list data. One such implication is the 
-possibility of a creating a location narrative based on  the information from this list. 
+ One such implication is the possibility of a creating a location narrative based on  the information from this list. 
 wigle.net is a tool that could assist in creating this narrative. Wigle.net is a 
 submission based catalog of wireless networks. If a network you have connected to has been 
 submitted to such a database and your SSID connection list is revealed then your location 
@@ -204,14 +211,14 @@ information can be obtained as well. We were able to see that three out of the f
 most connected to networks were available on this database; searching for "SALTLAKECOFFEEBREAK", 
 "UCONNECT", and "slcairport.wifi" all returned hits on the map. 
 While the information that was collected in our study was seemingly innocuous, especially 
-due to our filtering strategies, the same strategies can be maliciously. 
+due to our filtering strategies, the same strategies can be used maliciously. 
 Network names coupled with the locations of the network can easily be used to identify 
 the whereabouts of an individual. 
 
 
 \subsection{Client Fingerprinting}
 
-We wanted to look at fingerprinting participants based upon the participants SSID lists. We thought that based upon the different networks participants have connected to the lists would be different enough that we could uniquely identify participants. While the lists in our study were unique from one another we did not gather near enough data to conclusively say it is possible to fingerprint solely based upon your SSID list. We leave this for future work.
+Fingerprinting is meant to identify unique users. We wanted to look at fingerprinting participants based upon the participants SSID lists. We thought that based upon the different networks participants have connected to the lists would be different enough that we could uniquely identify participants. While the lists in our study were unique from one another we did not gather near enough data to conclusively say it is possible to fingerprint solely based upon your SSID list. We leave this for future work.
 
 Related works in this area have successfully fingerprinted devices and inferred social networks from the similarities of these fingerprints. One such work noted that it was possible to infer relationships from the SSID list similarities and grouped participants with similar SSID lists into groups to infer social ties\cite{cunche}. Two other works successfully fingerprinted using the timing of the probe request frames \cite{desmond} and the waveform \cite{ureten}. These works focus more on security than privacy.
 
@@ -228,6 +235,17 @@ To gauge our participants reactions we asked our participants to complete a surv
 While it appears that directed probing is on the decline, Wi-Fi networks still present other security and privacy concerns. Future work is needed to measure these risks and develop improved wireless protocols that are more secure and provide improved guarantees of privacy. As vendors move away from directed probing they usually move to broadcast probes. Broadcast probes don't reveal a list of remembered networks, but they do reveal the MAC address of the client. MAC addresses from probes are increasingly used to track people through physical spaces. IOS 8 is reported use a randomized MAC address for probes, but we aren't aware of a study examining the prevalence of MAC address randomization in non-Apple devices. Even given MAC randomization in probes, devices generally reveal their true MAC address when associated with a wireless network. It should be possible to design a wireless protocol in which no unique identifier is transmitted in the clear. Devices would only share a unique identifier after establishing an encrypted connection with an access point. Such a protocol could limit device fingerprinting to much less accessible physical layer attacks measuring the characteristics of wireless radios.
 
 \section{Conclusion}
+
+We were able to see that although certain devices and operating systems have moved 
+to safer probing strategies the public broadcasting of SSID lists is still a privacy concern.  
+The data that we were able to collect showed that information from SSID lists can be used for 
+location tracking as well as client fingerprinting. Our survey results showed that all of those 
+surveyed were not aware of the broadcasting of this information. Due to our
+data protection strategies there were not highly interesting patterns to be seen in our social network 
+graphs but it is clear that malicious individuals could easily sniff the SSID list information and use 
+it to their potential benefit. While certain devices and operating dystems have made strides in 
+altering their probing strategies more still needs to be regarding probing strategies in order to 
+minimize the broadcasting of potentially sensitive data. 
 
 
 
