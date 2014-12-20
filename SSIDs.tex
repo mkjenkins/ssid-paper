@@ -108,6 +108,8 @@ Greenstein et al \cite{greenstein} makes the argument that it is in the best int
 
 Mortensen et al \cite{mortensen} considers the kinds of attacks on wireless networks that are enabled by devices like the Wifi Pineapple we’ll be using to capture and filter network traffic. The authors note that small, concealable computers that can be powered from battery present a new type of threat, as breaches in physical security can allow attackers prolonged access to priviledged network positions. They use a Raspberry Pi and test the kinds of battery life expected while performing particular attacks. While they find that applications like network mapping are well-served by the Pi, it seems that exploit kits like metasploit ran poorly on such low power devices at the time of publication and attackers hoping to remain discreet would likely run the battery down before attempting many exploits.
 
+Li et al \cite{li} aim to geographically mine the similarity of users based on their location histories. They propose a framework that enables them to model individual’s location history and measure similarity among users. The idea is to be able to use such information for friend recommendation and location recommendation within applications. 
+
 
 \section{Privacy Considerations}
 To conduct this study we had to take into consideration the security and privacy of our participants so as to minimize harm but still collect meaningful data. The intent of our project is to reveal the potential privacy implications of the type of data we collected, so we had to address the reasonable privacy concerns of our participants.
@@ -217,7 +219,7 @@ most connected to networks were available on this database; searching for "SALTL
 While the information that was collected in our study was seemingly innocuous, especially 
 due to our filtering strategies, the same strategies can be used maliciously. 
 Network names coupled with the locations of the network can easily be used to identify 
-the whereabouts of an individual. 
+the whereabouts of an individual. As was demonstrated in \cite{li} it can also be used as a way to make friend and location recommendations.
 
 
 \subsection{Client Fingerprinting}
